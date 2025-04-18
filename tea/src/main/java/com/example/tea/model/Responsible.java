@@ -5,17 +5,15 @@ import jakarta.persistence.*;
 @Entity
 public class Responsible extends Person{
 
-    @Id
-    private Long id;
     private String email;
-    private String cep;
-    private String publicPlace;
-    private String number;
-    private String complement;
-    private String state;
-    private String city;
+
+    @Enumerated(EnumType.STRING)
+    private Bond bond;
 
     @OneToOne
     @MapsId
-    private Account user;
+    private Account account;
+
+    @OneToOne(mappedBy = "responsible", cascade = CascadeType.ALL)
+    private ResponsibleAdress adress;
 }
