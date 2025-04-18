@@ -5,7 +5,6 @@ import jakarta.persistence.*;
 @Entity
 public class Dependent extends Person{
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private String supportLevelTea;
+    private String medicalReport;
 }
