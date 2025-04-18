@@ -7,13 +7,14 @@ import java.util.Date;
 @MappedSuperclass
 public class Person {
 
-
-    private String firstName;
-    private String lastName;
+    @Id
+    private Long id;
+    private String fullName;
     private String cpf;
     private Date dateBirth;
+    private String nationality;
 
     @Enumerated(EnumType.STRING)
     private Gender gender;
-    private String nationality;
+
 }
