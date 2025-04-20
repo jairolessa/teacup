@@ -7,4 +7,7 @@ public class Dependent extends Person{
 
     private String supportLevelTea;
     private String medicalReport;
+
+    @ManyToOne
+    private Responsible responsible;
 }
