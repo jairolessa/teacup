@@ -6,11 +6,12 @@ import jakarta.persistence.*;
 public class Account {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String userName;
     private String password;
     private Boolean active;
 
-    @OneToOne(mappedBy = "account", cascade = CascadeType.ALL)
+    @OneToOne
     private Responsible responsible;
 }
