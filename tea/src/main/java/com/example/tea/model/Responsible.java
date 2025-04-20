@@ -2,6 +2,8 @@ package com.example.tea.model;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 public class Responsible extends Person{
 
@@ -9,11 +11,4 @@ public class Responsible extends Person{
 
     @Enumerated(EnumType.STRING)
     private Bond bond;
-
-    @OneToOne
-    @MapsId
-    private Account account;
-
-    @OneToOne(mappedBy = "responsible", cascade = CascadeType.ALL)
-    private ResponsibleAdress adress;
 }

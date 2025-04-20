@@ -1,11 +1,12 @@
 package com.example.tea.model;
 
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.*;
 
+@Entity
 public class ResponsibleAdress {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String cep;
     private String publicPlace;

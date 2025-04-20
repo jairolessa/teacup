@@ -8,6 +8,7 @@ import java.util.Date;
 public class Person {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String fullName;
     private String cpf;
