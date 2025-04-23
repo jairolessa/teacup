@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro de Responsável</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+</head>
+<body class="container mt-5">
+<h2>Cadastro de Responsável</h2>
+<form action="/responsible/save-responsible" method="post">
+
+    <!-- Full Name -->
+    <div class="mb-3">
+        <label for="fullName" class="form-label">Nome completo</label>
+        <input type="text" class="form-control" id="fullName" name="fullName" required>
+    </div>
+
+    <!-- CPF -->
+    <div class="mb-3">
+        <label for="cpf" class="form-label">CPF</label>
+        <input type="text" class="form-control" id="cpf" name="cpf" required>
+    </div>
+
+    <!-- Date of Birth -->
+    <div class="mb-3">
+        <label for="dateBirth" class="form-label">Data de nascimento</label>
+        <input type="date" class="form-control" id="dateBirth" name="dateBirth">
+    </div>
+
+    <!-- Nationality -->
+    <div class="mb-3">
+        <label for="nationality" class="form-label">Nacionalidade</label>
+        <input type="text" class="form-control" id="nationality" name="nationality">
+    </div>
+
+    <!-- Gender -->
+    <div class="mb-3">
+        <label for="gender" class="form-label">Gênero</label>
+        <select class="form-select" id="gender" name="gender">
+            <option value="">Selecione</option>
+            <option value="MALE">Masculino</option>
+            <option value="FEMALE">Feminino</option>
+        </select>
+    </div>
+
+    <!-- Email -->
+    <div class="mb-3">
+        <label for="email" class="form-label">E-mail</label>
+        <input type="email" class="form-control" id="email" name="email">
+    </div>
+
+    <!-- Bond -->
+    <div class="mb-3">
+        <label for="bond" class="form-label">Vínculo</label>
+        <select class="form-select" id="bond" name="bond">
+            <option value="">Selecione</option>
+            <option value="PAI">Pai</option>
+            <option value="MAE">Mãe</option>
+            <option value="RESPONSAVEL_LEGAL">Responsável Legal</option>
+            <!-- Adicione os valores conforme o enum Bond -->
+        </select>
+    </div>
+
+    <!-- Submit -->
+    <button type="submit" class="btn btn-primary">Enviar</button>
+</form>
+</body>
+</html>

@@ -14,4 +14,11 @@ public class Account {
 
     @OneToOne
     private Responsible responsible;
+
+    public Account(String userName, String password, Boolean active, Responsible responsible) {
+        this.userName = userName;
+        this.password = password;
+        this.active = active;
+        this.responsible = responsible;
+    }
 }
