@@ -33,6 +33,7 @@ public class ResponsibleController {
 
     @PostMapping("/save-responsible")
     public String saveResponsible(@ModelAttribute Responsible responsible){
-        return  "index";
+        responsibleService.saveResponsible(responsible);
+        return  "redirect:/responsible/list";
     }
 }
