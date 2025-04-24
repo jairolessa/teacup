@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Responsáveis</title>
+</head>
+<body>
+<h1>Responsáveis Cadastrados</h1>
+
+<table border="1">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>CPF</th>
+        <th>Email</th>
+        <th>Data de Nascimento</th>
+        <th>Gênero</th>
+        <th>Nacionalidade</th>
+        <th>Vínculo</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="responsible : ${responsibles}">
+        <td th:text="${responsible.id}">ID</td>
+        <td th:text="${responsible.fullName}">Nome</td>
+        <td th:text="${responsible.cpf}">CPF</td>
+        <td th:text="${responsible.email}">Email</td>
+        <td th:text="${responsible.dateBirth}">Data</td>
+        <td th:text="${responsible.gender.gender}">Gênero</td>
+        <td th:text="${responsible.nationality}">Nacionalidade</td>
+        <td th:text="${responsible.bond}">Vínculo</td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

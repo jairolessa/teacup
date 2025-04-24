@@ -2,18 +2,77 @@ package com.example.tea.model;
 
 import jakarta.persistence.*;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @MappedSuperclass
 public class Person {
 
-
-    private String firstName;
-    private String lastName;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String fullName;
     private String cpf;
-    private Date dateBirth;
+    private LocalDate dateBirth;
+    private String nationality;
 
     @Enumerated(EnumType.STRING)
     private Gender gender;
-    private String nationality;
+
+    public Person() {
+    }
+
+    public Person(String fullName, String cpf,LocalDate dateBirth, String nationality, Gender gender) {
+        this.fullName = fullName;
+        this.cpf = cpf;
+        this.dateBirth = dateBirth;
+        this.nationality = nationality;
+        this.gender = gender;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id){this.id = id;}
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    public LocalDate getDateBirth() {
+        return dateBirth;
+    }
+
+    public void setDateBirth(LocalDate dateBirth) {
+        this.dateBirth = dateBirth;
+    }
+
+    public String getNationality() {
+        return nationality;
+    }
+
+    public void setNationality(String nationality) {
+        this.nationality = nationality;
+    }
+
+    public Gender getGender() {
+        return gender;
+    }
+
+    public void setGender(Gender gender) {
+        this.gender = gender;
+    }
 }

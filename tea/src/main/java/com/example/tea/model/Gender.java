@@ -2,8 +2,8 @@ package com.example.tea.model;
 
 public enum Gender {
 
-    MASCULINO("Masculino"),
-    FEMININO("Feminino");
+    MALE("Masculino"),
+    FEMALE("Feminino");
 
     private String gender;
 
