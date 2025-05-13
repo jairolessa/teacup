@@ -26,11 +26,6 @@ public class ResponsibleController {
         return "index";
     }
 
-    @GetMapping("/register")
-    public String registerResponsible(){
-        return "register_responsible";
-    }
-
     @PostMapping("/save-responsible")
     public String saveResponsible(@ModelAttribute Responsible responsible){
         responsibleService.saveResponsible(responsible);
