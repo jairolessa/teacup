@@ -1,19 +1,21 @@
 package com.example.tea.model;
 
 import jakarta.persistence.*;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
+import java.util.Collection;
+import java.util.List;
 
 @Entity
-public class Account {
+public class Account implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String userName;
+    private String email;
     private String password;
     private Boolean active;
-
-    @OneToOne
-    private Responsible responsible;
 
     public Account(){}
 
@@ -25,16 +27,46 @@ public class Account {
         this.id = id;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getEmail() {
+        return email;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return List.of();
     }
 
     public String getPassword() {
         return password;
+    }
+
+    @Override
+    public String getUsername() {
+        return "";
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return UserDetails.super.isAccountNonExpired();
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return UserDetails.super.isAccountNonLocked();
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return UserDetails.super.isCredentialsNonExpired();
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return UserDetails.super.isEnabled();
     }
 
     public void setPassword(String password) {
@@ -49,18 +81,11 @@ public class Account {
         this.active = active;
     }
 
-    public Responsible getResponsible() {
-        return responsible;
-    }
-
-    public void setResponsible(Responsible responsible) {
-        this.responsible = responsible;
-    }
-
-    public Account(String userName, String password, Boolean active, Responsible responsible) {
-        this.userName = userName;
+    public Account(String email, String password, Boolean active) {
+        this.email = email;
         this.password = password;
-        this.active = active;
-        this.responsible = responsible;
+        this.active = true;
     }
+
+
 }

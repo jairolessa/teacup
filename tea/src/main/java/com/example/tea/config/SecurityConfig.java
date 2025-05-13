@@ -20,20 +20,20 @@ public class SecurityConfig {
                 .cors(withDefaults())
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers("/home", "/register", "/login").permitAll()
+                        .requestMatchers("/home", "/register-account", "/form-login", "/login", "/save-account").permitAll()
                         .anyRequest().authenticated()
                 )
                 .formLogin(form -> form
                         .loginPage("/login")
-                        .loginProcessingUrl("/login")
+                        .loginProcessingUrl("/form-login")
                         .permitAll()
                 )
                 .logout(logout -> logout
-                        .logoutSuccessUrl("/login?logoutSuccess=true")
+                        .logoutSuccessUrl("/form-login?logoutSuccess=true")
                         .deleteCookies("JSESSIONID")
                 )
                 .exceptionHandling(exception -> exception
-                        .authenticationEntryPoint(new LoginUrlAuthenticationEntryPoint("/login?loginRequired=true"))
+                        .authenticationEntryPoint(new LoginUrlAuthenticationEntryPoint("/form-login?loginRequired=true"))
                 )
                 .build();
     }
