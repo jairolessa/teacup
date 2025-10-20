@@ -1,3 +1,4 @@
+/*
 document.getElementById('loginform').addEventListener('submit', function (event) {
     event.preventDefault();
 
@@ -5,4 +6,4 @@ document.getElementById('loginform').addEventListener('submit', function (event)
 
     alert('Formulário enviado com sucesso!');
     window.location.replace("portal.html");
-});
+});*/

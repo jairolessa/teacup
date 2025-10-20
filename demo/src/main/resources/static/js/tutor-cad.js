@@ -1,11 +1,11 @@
-document.getElementById('registrationForm').addEventListener('submit', function (event) {
+/*document.getElementById('registrationForm').addEventListener('submit', function (event) {
     event.preventDefault();
 
     const formData = new FormData(this);
 
     alert('Formulário enviado com sucesso!');
-    window.location.replace("tutor-login.html");
-});
+    window.location.replace("tutor-login");
+});*/
 
 //CPF
 document.getElementById('cpf').addEventListener('input', function (e) {
@@ -64,10 +64,10 @@ const estados = [
 ];
 
 const generos = [
-    { value: "masculino", label: "Masculino" },
-    { value: "feminino", label: "Feminino" },
-    { value: "outro", label: "Outro" },
-    { value: "nao-informar", label: "Prefiro não informar" }
+    { value: "MASCULINO", label: "Masculino" },
+    { value: "FEMININO", label: "Feminino" },
+    { value: "OUTRO", label: "Outro" },
+    { value: "NAO_INFORMADO", label: "Prefiro não informar" }
 ];
 
 function preencherSelect(selectId, options) {

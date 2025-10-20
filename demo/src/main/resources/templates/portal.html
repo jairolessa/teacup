@@ -11,81 +11,152 @@
 </head>
 <body>
 <header class="banner">
+    <div class="header-content">
+        <nav class="nav-left">
+            <a th:href="@{/responsible/tea-cad}" class="nav-item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40">
+                    <circle cx="20" cy="20" r="18" fill="#909071"/>
+                    <circle cx="20" cy="20" r="18" fill="none" stroke="#F5F5DC" stroke-width="2"/>
+                    <g transform="translate(8, 8)">
+                        <path d="M15 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm-9-2V7H4v3H1v2h3v3h2v-3h3v-2H6zm9 4c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" fill="#F5F5DC"/>
+                    </g>
+                </svg>
+                <span>Cadastrar<br>Dependente</span>
+            </a>
 
-    <div class="logo-container">
-        <div class="logo-icon">
-            <img th:src="@{/imgs/logo.svg}" alt="TEAcup Logo" class="logo-svg">
+            <a th:href="@{/responsible/news}" class="nav-item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40">
+                    <circle cx="20" cy="20" r="18" fill="#909071"/>
+                    <circle cx="20" cy="20" r="18" fill="none" stroke="#F5F5DC" stroke-width="2"/>
+                    <g transform="translate(8, 8)">
+                        <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" fill="#F5F5DC"/>
+                    </g>
+                </svg>
+                <span>Novidades</span>
+            </a>
+
+            <a th:href="@{/responsible/profile}" class="nav-item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40">
+                    <circle cx="20" cy="20" r="18" fill="#909071"/>
+                    <circle cx="20" cy="20" r="18" fill="none" stroke="#F5F5DC" stroke-width="2"/>
+                    <g transform="translate(8, 8)">
+                        <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" fill="#F5F5DC"/>
+                    </g>
+                </svg>
+                <span>Perfil</span>
+            </a>
+        </nav>
+
+        <div class="logo-container">
+            <h1>Portal TEAcup</h1>
+            <p>Um gole de apoio para cada dia no espectro</p>
+            <div class="logo-icon">
+                <img th:src="@{/imgs/logo.svg}" alt="TEAcup Logo" class="logo-svg">
+            </div>
         </div>
-        <h1>Portal TEAcup</h1>
-        <p>Um gole de apoio para cada dia no espectro</p>
-    </div>
 
+        <nav class="nav-right">
+            <a th:href="@{/responsible/story}" class="nav-item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40">
+                    <circle cx="20" cy="20" r="18" fill="#909071"/>
+                    <circle cx="20" cy="20" r="18" fill="none" stroke="#F5F5DC" stroke-width="2"/>
+                    <g transform="translate(8, 8)">
+                        <path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z" fill="#F5F5DC"/>
+                    </g>
+                </svg>
+                <span>Relato</span>
+            </a>
+
+            <a th:href="@{/responsible/video}" class="nav-item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40">
+                    <circle cx="20" cy="20" r="18" fill="#909071"/>
+                    <circle cx="20" cy="20" r="18" fill="none" stroke="#F5F5DC" stroke-width="2"/>
+                    <g transform="translate(8, 8)">
+                        <path d="M10 16.5l6-4.5-6-4.5v9zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" fill="#F5F5DC"/>
+                    </g>
+                </svg>
+                <span>Vídeo</span>
+            </a>
+            <a th:href="@{/responsible/directory}" class="nav-item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40">
+                    <circle cx="20" cy="20" r="18" fill="#909071"/>
+                    <circle cx="20" cy="20" r="18" fill="none" stroke="#F5F5DC" stroke-width="2"/>
+                    <g transform="translate(8, 8)">
+                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="#F5F5DC"/>
+                    </g>
+                </svg>
+                <span>Mapa</span>
+            </a>
+
+            <a th:href="@{/logout}" class="logout-btn" title="Sair">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#F5F5DC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                    <polyline points="16 17 21 12 16 7"></polyline>
+                    <line x1="21" y1="12" x2="9" y2="12"></line>
+                </svg>
+                <span>Sair</span>
+            </a>
+
+        </nav>
+    </div>
 </header>
 
-<nav>
-    <a href="tea-cad.html" class="nav-item">Cadastrar Dependente</a>
-    <a href="news.html" class="nav-item">Novidades</a>
-</nav>
 
 <div class="container">
     <div class="main-content">
         <div class="left-column">
-            <div class="card card-article">
-                <h2>Artigos</h2>
-                <div class="article">
+            <div class="card card-dependents">
+                <h2>Sobre a Jornada</h2>
+                <div class="dependent-info">
                     <img th:src="@{/imgs/white-heart.webp}" class="white-heart" alt="Small pin of a white heart.">
-                    <h3>Avanços nas Pesquisas sobre Neurodiversidade: Um Panorama Atual</h3>
-                    <div class="authors">Silva, M.A.; Oliveira, J.P.; Santos, C.R.</div>
-                    <div class="description">
-                        Este artigo apresenta uma revisão abrangente sobre neurodiversidade e o espectro autista, com
-                        foco em novas abordagens terapêuticas e educacionais baseadas em evidências científicas.
+                    <div class="info-row">
+
+                        <div class="info-item">
+                            <div class="info-label">Nome da Criança</div>
+                            <div class="info-value">Lucas Silva</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Idade</div>
+                            <div class="info-value">7 anos</div>
+                        </div>
                     </div>
-                    <div class="tags">
-                        <a href="#" class="tag">Neurodiversidade</a>
-                        <a href="#" class="tag">Pesquisa</a>
-                        <a href="#" class="tag">Terapias</a>
+
+                    <div class="info-row">
+                        <div class="info-item">
+                            <div class="info-label">Diagnóstico</div>
+                            <div class="info-value">TEA Nível 1</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Data do Diagnóstico</div>
+                            <div class="info-value">Janeiro 2022</div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="article">
-                    <h3>Estratégias de Comunicação para Pessoas no Espectro Autista</h3>
-                    <div class="authors">Costa, R.B.; Almeida, F.T.; Pereira, A.M.</div>
-                    <div class="description">
-                        Uma análise das diferentes estratégias de comunicação e suporte para pessoas no espectro
-                        autista, considerando diversos perfis sensoriais e necessidades específicas.
-                    </div>
-                    <div class="tags">
-                        <a href="#" class="tag">Comunicação</a>
-                        <a href="#" class="tag">Inclusão</a>
-                        <a href="#" class="tag">Suporte</a>
-                    </div>
-                </div>
+                <h2 class="section-title">Terapias e Acompanhamentos</h2>
 
-                <div class="article">
-                    <h3>Inclusão Escolar e Adaptações Curriculares para Estudantes Autistas</h3>
-                    <div class="authors">Rodrigues, T.S.; Fernandes, L.C.; Mendes, D.A.</div>
-                    <div class="description">
-                        Este estudo analisa as melhores práticas de inclusão escolar para estudantes no espectro
-                        autista, com exemplos de adaptações curriculares e ambientais bem-sucedidas.
+                <div class="therapy-info">
+                    <div class="info-item full-width">
+                        <div class="info-label">Terapias Atuais</div>
+                        <div class="info-value">Fonoaudiologia, Terapia Ocupacional, ABA</div>
                     </div>
-                    <div class="tags">
-                        <a href="#" class="tag">Educação</a>
-                        <a href="#" class="tag">Adaptações</a>
-                        <a href="#" class="tag">Inclusão Escolar</a>
+
+                    <div class="info-item full-width">
+                        <div class="info-label">Escola</div>
+                        <div class="info-value">Escola Municipal Dom Pedro II - Inclusão</div>
                     </div>
                 </div>
             </div>
-
             <div class="card card-video">
                 <h2>Vídeo em Destaque</h2>
                 <div class="video-container">
-                    <img th:src="@{/imgs/plant.webp}" class="plant" alt="">
-                    <div class="video-placeholder">
-                        Entendendo o Espectro Autista
-                    </div>
+                    <iframe
+                            src="https://www.youtube.com/embed/y-_Ly5Tqggc"
+                            title="O que é autismo?"
+                            allowfullscreen
+                    ></iframe>
                 </div>
-                <p>Neste vídeo educativo, a especialista explicam as diversas formas de manifestação do autismo e
-                    desconstroem mitos comuns sobre o espectro.</p>
+                <p>O que é o autismo? Como ele se manifesta? Essas são algumas das dúvidas mais comuns quando se depara com o diagnóstico do Transtorno do Espectro Autista (TEA).</p>
             </div>
         </div>
 
@@ -108,7 +179,7 @@
                     parte do que me torna especial. Minha jornada no espectro autista não é sobre limitações, mas sobre
                     descobrir talentos e formas únicas de conexão...
                 </div>
-                <a href="#" class="read-more">Continuar lendo</a>
+                <a th:href="@{/responsible/story}" id = "read-more" class="nav-item">Continuar lendo</a>
             </div>
 
 
@@ -222,7 +293,7 @@
 
     <div class="camera-container">
         <img th:src="@{/imgs/camera.png}" class="camera" alt="Vintage old brown camera.">
-        <span class="camera-tooltip">Lives Recentes</span>
+        <span class="camera-tooltip">Vídeos Recentes</span>
     </div>
 
     <div class="note-container">

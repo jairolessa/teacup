@@ -20,22 +20,18 @@ public abstract class Person {
     @Column(name = "birth_date", nullable = false)
     private LocalDate birthDate;
 
+    @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private String gender;
-
-    @OneToOne
-    @JoinColumn(name = "user_id")
-    private User user;
+    private Gender gender;
 
     public Person() {
     }
 
-    public Person(String fullName, String cpf, LocalDate birthDate, String gender, User user) {
+    public Person(String fullName, String cpf, LocalDate birthDate, Gender gender) {
         this.fullName = fullName;
         this.cpf = cpf;
         this.birthDate = birthDate;
         this.gender = gender;
-        this.user = user;
     }
 
     public Long getId() {
@@ -70,19 +66,22 @@ public abstract class Person {
         this.birthDate = birthDate;
     }
 
-    public String getGender() {
+    public Gender getGender() {
         return gender;
     }
 
-    public void setGender(String gender) {
+    public void setGender(Gender gender) {
         this.gender = gender;
     }
 
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
+    @Override
+    public String toString() {
+        return "Person{" +
+                "id=" + id +
+                ", fullName='" + fullName + '\'' +
+                ", cpf='" + cpf + '\'' +
+                ", birthDate=" + birthDate +
+                ", gender=" + gender +
+                '}';
     }
 }

@@ -1,4 +1,4 @@
-// Search functionality
+
         document.querySelector('.search-box').addEventListener('input', function(e) {
             const searchTerm = e.target.value.toLowerCase();
             const articles = document.querySelectorAll('.article-card');
@@ -16,14 +16,12 @@
                 }
             });
         });
-        
-        // Tag filtering
+
         document.querySelectorAll('.tag').forEach(tag => {
             tag.addEventListener('click', function() {
                 const tagText = this.textContent.toLowerCase();
                 const articles = document.querySelectorAll('.article-card');
-                
-                // Reset all articles
+
                 articles.forEach(article => {
                     article.style.display = 'block';
                     article.style.opacity = '0.3';

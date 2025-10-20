@@ -1,51 +1,41 @@
-package com.projetoTEA5.demo.model;
+package com.projetoTEA5.demo.dto;
 
+import com.projetoTEA5.demo.model.Gender;
 import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
 import java.time.LocalDate;
-import java.util.Collection;
-import java.util.List;
 
-@Entity
-public class Responsible extends Person implements UserDetails {
+public class ResponsibleDto {
 
-    @Column(name = "contact_number")
+    private Long id;
+    private String fullName;
+    private String cpf;
+    private LocalDate birthDate;
+    private Gender gender;
     private String contactNumber;
-
-    @Column(nullable = false)
     private String cep;
-
-    @Column(name = "public_place", nullable = false)
     private String publicPlace;
-
-    @Column(name = "house_number")
     private String houseNumber;
-
-    @Column(nullable = false)
     private String neighbourhood;
-
-    @Column(nullable = false)
     private String city;
-
-    @Column(nullable = false)
     private String state;
-
-    @Column(nullable = false)
     private String complement;
-
-    @Column(nullable = false, unique = true)
     private String email;
-
-    @Column(nullable = false)
     private String password;
-
-    @Column(nullable = false)
     private Boolean active = true;
 
-    public Responsible(String contactNumber, String cep, String publicPlace, String houseNumber, String neighbourhood, String city, String state, String complement, String email, String password, Boolean active) {
+    public ResponsibleDto() {
+    }
+
+    public ResponsibleDto(Long id, String fullName, String cpf, LocalDate birthDate, Gender gender, String contactNumber, String cep, String publicPlace, String houseNumber, String neighbourhood, String city, String state, String password, String email, String complement, Boolean active) {
+        this.id = id;
+        this.fullName = fullName;
+        this.cpf = cpf;
+        this.birthDate = birthDate;
+        this.gender = gender;
         this.contactNumber = contactNumber;
         this.cep = cep;
         this.publicPlace = publicPlace;
@@ -53,13 +43,51 @@ public class Responsible extends Person implements UserDetails {
         this.neighbourhood = neighbourhood;
         this.city = city;
         this.state = state;
-        this.complement = complement;
-        this.email = email;
         this.password = password;
+        this.email = email;
+        this.complement = complement;
         this.active = active;
     }
 
-    public Responsible(){}
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    public LocalDate getBirthDate() {
+        return birthDate;
+    }
+
+    public void setBirthDate(LocalDate birthDate) {
+        this.birthDate = birthDate;
+    }
+
+    public Gender getGender() {
+        return gender;
+    }
+
+    public void setGender(Gender gender) {
+        this.gender = gender;
+    }
 
     public String getContactNumber() {
         return contactNumber;
@@ -137,11 +165,6 @@ public class Responsible extends Person implements UserDetails {
         return password;
     }
 
-    @Override
-    public String getUsername() {
-        return this.email;
-    }
-
     public void setPassword(String password) {
         this.password = password;
     }
@@ -155,34 +178,14 @@ public class Responsible extends Person implements UserDetails {
     }
 
     @Override
-    public boolean isAccountNonExpired() {
-        return true;
-    }
-
-    @Override
-    public boolean isAccountNonLocked() {
-        return true;
-    }
-
-    @Override
-    public boolean isCredentialsNonExpired() {
-        return true;
-    }
-
-    @Override
-    public boolean isEnabled() {
-        return this.active;
-    }
-
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of();
-    }
-
-    @Override
     public String toString() {
-        return "Responsible{" +
-                "contactNumber='" + contactNumber + '\'' +
+        return "ResponsibleDto{" +
+                "id=" + id +
+                ", fullName='" + fullName + '\'' +
+                ", cpf='" + cpf + '\'' +
+                ", birthDate=" + birthDate +
+                ", gender=" + gender +
+                ", contactNumber='" + contactNumber + '\'' +
                 ", cep='" + cep + '\'' +
                 ", publicPlace='" + publicPlace + '\'' +
                 ", houseNumber='" + houseNumber + '\'' +
@@ -193,6 +196,6 @@ public class Responsible extends Person implements UserDetails {
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 ", active=" + active +
-                "} " + super.toString();
+                '}';
     }
 }

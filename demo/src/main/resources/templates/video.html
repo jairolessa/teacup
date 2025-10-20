@@ -1,127 +1,132 @@
 <!DOCTYPE html>
-<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<html lang="pt-BR" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" th:href="@{/imgs/logo.svg}" type="image/svg+xml">
     <title>Videos</title>
+    <link rel="icon" th:href="@{imgs/logo.svg}" type="image/svg+xml">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Crimson+Pro:wght@400;600;700&display=swap"
+          rel="stylesheet">
     <link rel="stylesheet" th:href="@{/css/video.css}">
 </head>
 <body>
-    <div class="container">
-        <header class="header">
-            <h1>Vídeo em Destaque</h1>
-            <p class="subtitle">Ensinando a se descobrir entre a Neurodiversidade</p>
-            <nav class="nav-menu">
-                <a href="#" class="nav-item active">Todos os Videos</a>
-                <a href="#" class="nav-item">Pesquisas Recentes</a>
-                <a href="#" class="nav-item">Terapias</a>
-                <a href="#" class="nav-item">Educação</a>
-                <a href="#" class="nav-item">Família</a>
-            </nav>
-        </header>
+<div class="container">
+    <header class="header">
+        <h1>Vídeo em Destaque</h1>
+        <p class="subtitle">Ensinando a se descobrir entre a Neurodiversidade</p>
+        <nav class="nav-menu">
+            <a href="#" class="nav-item active">Todos os Videos</a>
+            <a href="#" class="nav-item">Pesquisas Recentes</a>
+            <a href="#" class="nav-item">Terapias</a>
+            <a href="#" class="nav-item">Educação</a>
+            <a href="#" class="nav-item">Família</a>
+        </nav>
+    </header>
 
-        <div class="professional-card">
-                    <h2 class="professional-name">Dra. Mariana Alves da Silva</h2>
-                    <div class="professional-occupation">Psicóloga Especialista em Transtorno do Espectro Autista (TEA)</div>
-                    <p class="professional-description">Com mais de 10 anos de experiência em intervenções comportamentais e educacionais voltadas para pessoas com TEA, a Dra. Mariana atua com foco em estratégias baseadas em evidências científicas e inclusão escolar. 
-                    Nesta aula, ela compartilha práticas eficazes para estimular o desenvolvimento socioemocional.</p>
-                    <div class="professional-tags">
-                        <span class="tag">Neurodiversidade</span>
-                        <span class="tag">Aula</span>
-                        <span class="tag">Conhecimento</span>
-                    </div>
+    <div class="professional-card">
+        <h2 class="professional-name">Validado por: Dr. Rodrigo Silveira</h2>
+        <div class="professional-occupation">Psiquiatra e especialista em infância e adolescência</div>
+        <p class="professional-description">Com mais de 10 anos de experiência, o médico pela Fundação Universitária
+            do Rio Grande, com especialização em psiquiatria pela PUC - RS e título de especialista reconhecido pela ABP.
+            Possui pós-graduação em Saúde Mental da Infância e Adolescência pela UNIFESP/UPIA, mestrado profissional em Saúde Coletiva pela UNESC.</p>
+        <div class="professional-tags">
+            <span class="tag">Neurodiversidade</span>
+            <span class="tag">Aula</span>
+            <span class="tag">Conhecimento</span>
         </div>
     </div>
-<div class="main-content">
 
-  <main class="articles-section">
-    <div class="card card-video">
-      <h2>Estimulando o desenvolvimento socioemocional</h2>
-      <div class="video-container">
-        <div class="video-placeholder">
-          Entendendo o Espectro Autista
-        </div>
-      </div>
+    <div class="main-content">
+
+        <main class="articles-section">
+            <div class="card card-video">
+                <h2>O que é Transtorno do Espectro Autista?</h2>
+                <div class="video-container">
+                    <iframe
+                            src="https://www.youtube.com/embed/y-_Ly5Tqggc"
+                            title="O que é autismo?"
+                            allowfullscreen
+                    ></iframe>
+                </div>
+
+            </div>
     </div>
-
 
     <div class="pagination">
-      <a href="#">« Anterior</a>
-      <a href="#" class="active">1</a>
-      <a href="#">2</a>
-      <a href="#">3</a>
-      <a href="#">4</a>
-      <a href="#">Próximo »</a>
+        <a href="#">« Anterior</a>
+        <a href="#" class="active">1</a>
+        <a href="#">2</a>
+        <a href="#">3</a>
+        <a href="#">4</a>
+        <a href="#">Próximo »</a>
     </div>
+    </main>
 
-  </main>
-</div>
+    <aside class="sidebar">
+        <div class="search-box">
+            <h3 class="sidebar-title">Buscar Vídeos</h3>
+            <input
+                    type="text"
+                    class="search-input"
+                    placeholder="Digite palavras-chave..."
+            />
+        </div>
 
-  <aside class="sidebar">
-    <div class="search-box">
-      <h3 class="sidebar-title">Buscar Vídeos</h3>
-      <input
-        type="text"
-        class="search-input"
-        placeholder="Digite palavras-chave..."/>
-    </div>
+        <div class="sidebar-section">
+            <h3>Outros Vídeos</h3>
+            <ul class="video-list">
+                <li>
+                    <span>A jornada do diagnóstico</span>
+                    <span class="duration">8:45</span>
+                </li>
+                <li>
+                    <span>Comunicação não-verbal</span>
+                    <span class="duration">12:30</span>
+                </li>
+                <li>
+                    <span>Rotinas e previsibilidade</span>
+                    <span class="duration">10:15</span>
+                </li>
+                <li>
+                    <span>Terapias e intervenções</span>
+                    <span class="duration">15:20</span>
+                </li>
+                <li>
+                    <span>Inclusão escolar na prática</span>
+                    <span class="duration">11:40</span>
+                </li>
+            </ul>
+        </div>
 
-    <div class="sidebar-section">
-      <h3>Outros Vídeos</h3>
-      <ul class="video-list">
-        <li>
-          <span>A jornada do diagnóstico</span>
-          <span class="duration">8:45</span>
-        </li>
-        <li>
-          <span>Comunicação não-verbal</span>
-          <span class="duration">12:30</span>
-        </li>
-        <li>
-          <span>Rotinas e previsibilidade</span>
-          <span class="duration">10:15</span>
-        </li>
-        <li>
-          <span>Terapias e intervenções</span>
-          <span class="duration">15:20</span>
-        </li>
-        <li>
-          <span>Inclusão escolar na prática</span>
-          <span class="duration">11:40</span>
-        </li>
-      </ul>
-    </div>
-
-    <div class="sidebar-section">
-      <h3>Categorias</h3>
-      <ul class="video-list">
-        <li>
-          <span>Educação e Aprendizagem</span>
-          <span class="count">18</span>
-        </li>
-        <li>
-          <span>Família e Relacionamentos</span>
-          <span class="count">24</span>
-        </li>
-        <li>
-          <span>Terapias e Intervenções</span>
-          <span class="count">15</span>
-        </li>
-        <li>
-          <span>Diagnóstico e Avaliação</span>
-          <span class="count">12</span>
-        </li>
-        <li>
-          <span>Vida Adulta</span>
-          <span class="count">9</span>
-        </li>
-      </ul>
-    </div>
-  </aside>
+        <div class="sidebar-section">
+            <h3>Categorias</h3>
+            <ul class="video-list">
+                <li>
+                    <span>Educação e Aprendizagem</span>
+                    <span class="count">18</span>
+                </li>
+                <li>
+                    <span>Família e Relacionamentos</span>
+                    <span class="count">24</span>
+                </li>
+                <li>
+                    <span>Terapias e Intervenções</span>
+                    <span class="count">15</span>
+                </li>
+                <li>
+                    <span>Diagnóstico e Avaliação</span>
+                    <span class="count">12</span>
+                </li>
+                <li>
+                    <span>Vida Adulta</span>
+                    <span class="count">9</span>
+                </li>
+            </ul>
+        </div>
+    </aside>
 
 
-    <script th:src="@{/js/video.js}"></script>
-    
+    <script src="javascript/video.js"></script>
+
 </body>
 </html>
