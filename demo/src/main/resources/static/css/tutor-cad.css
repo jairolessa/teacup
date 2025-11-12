@@ -1,5 +1,43 @@
+/* BOTÃO DE SAIR */
+.btn-back {
+  position: absolute;
+  bottom: 15px;
+  right: 20px;
+  font-size: 11px;
+  color: #fff;
+  text-decoration: none;
+  letter-spacing: 0.8px;
+  transition: all 0.3s ease;
+  padding: 6px 10px;
+  border-radius: 5px;
+  text-align: center;
+  flex-direction: column;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background-color: #bb8588;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
 
-    /*LOGINPAGE*/
+.btn-back svg {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+}
+
+.btn-back:hover {
+  border-radius: 10%;
+  background-color: #6b888c;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn-back:active {
+  transform: translateY(0);
+}
+
+/* LOGINPAGE */
 
     body {
         min-height: 100vh;

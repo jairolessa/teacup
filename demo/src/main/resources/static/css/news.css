@@ -1,9 +1,49 @@
 * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+ }
+
+/* BOTÃO DE VOLTAR */
+.btn-back {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 11px;
+  color: #fff;
+  text-decoration: none;
+  letter-spacing: 0.8px;
+  transition: all 0.3s ease;
+  padding: 6px 10px;
+  border-radius: 5px;
+  text-align: center;
+  flex-direction: column;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background-color: #a29cad;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+.btn-back svg {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+}
+
+.btn-back:hover {
+  border-radius: 10%;
+  background-color: #7d7787;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn-back:active {
+  transform: translateY(0);
+}
+
+/* BODY */
         body {
             background: linear-gradient(135deg, #f8f6f3 0%, #f0ede8 100%);
             color: #5a5a5a;

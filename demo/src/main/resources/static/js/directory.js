@@ -1,4 +1,4 @@
-    // Simulated data
+    // Dados Simulados
     const sampleResults = [
         {
             id: 1,
