@@ -1,26 +1,15 @@
 package com.projetoTEA5.demo.controller;
 
 import com.projetoTEA5.demo.dto.ResponsibleDto;
-import com.projetoTEA5.demo.model.Responsible;
 import com.projetoTEA5.demo.service.ResponsibleService;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.context.SecurityContext;
-import org.springframework.security.web.context.HttpSessionSecurityContextRepository;
-import org.springframework.security.web.context.SecurityContextRepository;
+import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @Controller()
 @RequestMapping("/responsible")
 public class ResponsibleController {
 
-    @Autowired
     private final ResponsibleService responsibleService;
 
     public ResponsibleController(ResponsibleService responsibleService){
@@ -28,40 +17,43 @@ public class ResponsibleController {
     }
 
     @PostMapping("/new")
-    public String registerResponsible(@ModelAttribute ResponsibleDto responsibleDto){
+    public String registerResponsible(@Valid @ModelAttribute ResponsibleDto responsibleDto){
         System.out.println(responsibleDto.toString());
         responsibleService.saveResponsible(responsibleDto);
         return "redirect:/tutor-login";
     }
 
-    @PostMapping("/login")
-    public String login(@RequestParam("userName") String username,
-                        @RequestParam("password") String password,
-                        SecurityContext currentContext,
-                        HttpServletRequest request,
-                        HttpServletResponse response){
-
-        System.out.println(username);
-        System.out.println(password);
-
-        Responsible responsible = responsibleService.responsibleByUsername(username);
-
-        if(responsible == null || !responsibleService.verifyPassword(password, responsible.getPassword())){
-            return "redirect:/tutor-login?error=true";
-        }
-
-        List<SimpleGrantedAuthority> authorities = List.of(new SimpleGrantedAuthority("ROLE_USER"));
-
-        UsernamePasswordAuthenticationToken authentication =
-                new UsernamePasswordAuthenticationToken(responsible, null, authorities);
-
-        currentContext.setAuthentication(authentication);
-
-        SecurityContextRepository securityContextRepository = new HttpSessionSecurityContextRepository();
-        securityContextRepository.saveContext(currentContext, request, response);
-
-        return "portal";
-    }
+//    @PostMapping("/login")
+//    public String login(@RequestParam("username") String username,
+//                        @RequestParam("password") String password,
+//                        SecurityContext currentContext,
+//                        HttpServletRequest request,
+//                        HttpServletResponse response){
+//
+//        System.out.println(username);
+//        System.out.println(password);
+//        System.out.println(currentContext);
+//        System.out.println(request);
+//        System.out.println(response);
+//
+//        Account account = accountService.accountByUsername(username);
+//
+//        if(account == null || !accountService.verifyPassword(password, account.getPassword())){
+//            return "redirect:/tutor-login?error=true";
+//        }
+//
+//        List<SimpleGrantedAuthority> authorities = List.of(new SimpleGrantedAuthority("ROLE_USER"));
+//
+//        UsernamePasswordAuthenticationToken authentication =
+//                new UsernamePasswordAuthenticationToken(account, null, authorities);
+//
+//        currentContext.setAuthentication(authentication);
+//
+//        SecurityContextRepository securityContextRepository = new HttpSessionSecurityContextRepository();
+//        securityContextRepository.saveContext(currentContext, request, response);
+//
+//        return "portal";
+//    }
 
     @GetMapping("/portal")
     public String portal(){

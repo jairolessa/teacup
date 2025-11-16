@@ -10,7 +10,7 @@ import java.util.Collection;
 import java.util.List;
 
 @Entity
-public class Responsible extends Person implements UserDetails {
+public class Responsible extends Person{
 
     @Column(name = "contact_number")
     private String contactNumber;
@@ -40,12 +40,9 @@ public class Responsible extends Person implements UserDetails {
     private String email;
 
     @Column(nullable = false)
-    private String password;
-
-    @Column(nullable = false)
     private Boolean active = true;
 
-    public Responsible(String contactNumber, String cep, String publicPlace, String houseNumber, String neighbourhood, String city, String state, String complement, String email, String password, Boolean active) {
+    public Responsible(String contactNumber, String cep, String publicPlace, String houseNumber, String neighbourhood, String city, String state, String complement, String email, Boolean active) {
         this.contactNumber = contactNumber;
         this.cep = cep;
         this.publicPlace = publicPlace;
@@ -55,7 +52,6 @@ public class Responsible extends Person implements UserDetails {
         this.state = state;
         this.complement = complement;
         this.email = email;
-        this.password = password;
         this.active = active;
     }
 
@@ -133,50 +129,12 @@ public class Responsible extends Person implements UserDetails {
         this.email = email;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    @Override
-    public String getUsername() {
-        return this.email;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
     public Boolean getActive() {
         return active;
     }
 
     public void setActive(Boolean active) {
         this.active = active;
-    }
-
-    @Override
-    public boolean isAccountNonExpired() {
-        return true;
-    }
-
-    @Override
-    public boolean isAccountNonLocked() {
-        return true;
-    }
-
-    @Override
-    public boolean isCredentialsNonExpired() {
-        return true;
-    }
-
-    @Override
-    public boolean isEnabled() {
-        return this.active;
-    }
-
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of();
     }
 
     @Override
@@ -191,7 +149,6 @@ public class Responsible extends Person implements UserDetails {
                 ", state='" + state + '\'' +
                 ", complement='" + complement + '\'' +
                 ", email='" + email + '\'' +
-                ", password='" + password + '\'' +
                 ", active=" + active +
                 "} " + super.toString();
     }

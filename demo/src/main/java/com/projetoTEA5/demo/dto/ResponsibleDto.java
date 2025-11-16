@@ -5,33 +5,65 @@ import jakarta.persistence.Column;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.validation.constraints.*;
 
 import java.time.LocalDate;
 
 public class ResponsibleDto {
 
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @NotBlank(message = "O nome completo é obrigatório!")
+    @Size(min = 3, message = "O nome deve ser completo!")
     private String fullName;
+
+    @NotBlank(message = "O cpf é obrigatório!")
+//    @Pattern(regexp = "\\d{11}", message = "O CPF deve conter 11 dígitos!")
     private String cpf;
+
+    @NotNull(message = "A data de nascimento é obrigatória!")
     private LocalDate birthDate;
+
+    @NotNull(message = "O gênero é obrigatório!")
     private Gender gender;
+
+    @NotBlank(message = "O número de contato é obrigatório!")
     private String contactNumber;
+
+    @NotBlank(message = "O cep é obrigatório!")
+//    @Pattern(regexp = "\\d{8}", message = "O CPF deve conter 8 dígitos!")
     private String cep;
+
+    @NotBlank(message = "O logradouro é obrigatório!")
     private String publicPlace;
     private String houseNumber;
+
+    @NotBlank(message = "O bairro é obrigatório!")
     private String neighbourhood;
+
+    @NotBlank(message = "A cidade é obrigatória!")
     private String city;
+
+    @NotBlank(message = "O estado é obrigatório!")
     private String state;
     private String complement;
+
+    @Email(message = "E-mail inválido.")
+    @NotBlank(message = "O e-mail é obrigatório.")
     private String email;
+
+    private String username;
+
+    @NotBlank(message = "A senha é obrigatória!")
     private String password;
     private Boolean active = true;
 
     public ResponsibleDto() {
     }
 
-    public ResponsibleDto(Long id, String fullName, String cpf, LocalDate birthDate, Gender gender, String contactNumber, String cep, String publicPlace, String houseNumber, String neighbourhood, String city, String state, String password, String email, String complement, Boolean active) {
-        this.id = id;
+    public ResponsibleDto(String fullName, String cpf, LocalDate birthDate, Gender gender, String contactNumber, String cep, String publicPlace, String houseNumber, String neighbourhood, String city, String state, String password, String email, String complement, Boolean active) {
         this.fullName = fullName;
         this.cpf = cpf;
         this.birthDate = birthDate;
@@ -180,7 +212,6 @@ public class ResponsibleDto {
     @Override
     public String toString() {
         return "ResponsibleDto{" +
-                "id=" + id +
                 ", fullName='" + fullName + '\'' +
                 ", cpf='" + cpf + '\'' +
                 ", birthDate=" + birthDate +

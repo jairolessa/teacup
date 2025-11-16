@@ -1,44 +1,51 @@
 package com.projetoTEA5.demo.mapper;
 
 import com.projetoTEA5.demo.dto.ResponsibleDto;
+import com.projetoTEA5.demo.model.Account;
 import com.projetoTEA5.demo.model.Responsible;
+import org.hibernate.annotations.Comment;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Component;
 
+@Component
 public class ResponsibleMapper {
-    public static Responsible toEntity(ResponsibleDto responsibleDto){
-        Responsible entity = new Responsible();
-        entity.setFullName(responsibleDto.getFullName());
-        entity.setCpf(responsibleDto.getCpf());
-        entity.setBirthDate(responsibleDto.getBirthDate());
-        entity.setGender(responsibleDto.getGender());
-        entity.setContactNumber(responsibleDto.getContactNumber());
-        entity.setCep(responsibleDto.getCep());
-        entity.setPublicPlace(responsibleDto.getPublicPlace());
-        entity.setHouseNumber(responsibleDto.getHouseNumber());
-        entity.setNeighbourhood(responsibleDto.getNeighbourhood());
-        entity.setCity(responsibleDto.getCity());
-        entity.setState(responsibleDto.getState());
-        entity.setComplement(responsibleDto.getComplement());
-        entity.setEmail(responsibleDto.getEmail());
-        entity.setPassword(responsibleDto.getPassword());
-        entity.setActive(true);
-        return entity;
+
+    private final PasswordEncoder passwordEncoder;
+
+    public ResponsibleMapper(PasswordEncoder passwordEncoder) {
+        this.passwordEncoder = passwordEncoder;
     }
 
-    public static ResponsibleDto toDTO(Responsible entity) {
-        ResponsibleDto responsibleDto = new ResponsibleDto();
-        responsibleDto.setFullName(entity.getFullName());
-        responsibleDto.setCpf(entity.getCpf());
-        responsibleDto.setBirthDate(entity.getBirthDate());
-        responsibleDto.setGender(entity.getGender());
-        responsibleDto.setContactNumber(entity.getContactNumber());
-        responsibleDto.setCep(entity.getCep());
-        responsibleDto.setPublicPlace(entity.getPublicPlace());
-        responsibleDto.setHouseNumber(entity.getHouseNumber());
-        responsibleDto.setNeighbourhood(entity.getNeighbourhood());
-        responsibleDto.setCity(entity.getCity());
-        responsibleDto.setState(entity.getState());
-        responsibleDto.setComplement(entity.getComplement());
-        responsibleDto.setEmail(entity.getEmail());
-        return responsibleDto;
+    public Responsible toResponsible(ResponsibleDto dto) {
+        Responsible responsible = new Responsible();
+
+//        responsible.setId(dto.getId());
+        responsible.setFullName(dto.getFullName());
+        responsible.setCpf(dto.getCpf());
+        responsible.setGender(dto.getGender());
+        responsible.setBirthDate(dto.getBirthDate());
+        responsible.setContactNumber(dto.getContactNumber());
+        responsible.setCep(dto.getCep());
+        responsible.setPublicPlace(dto.getPublicPlace());
+        responsible.setHouseNumber(dto.getHouseNumber());
+        responsible.setNeighbourhood(dto.getNeighbourhood());
+        responsible.setCity(dto.getCity());
+        responsible.setState(dto.getState());
+        responsible.setComplement(dto.getComplement());
+        responsible.setEmail(dto.getEmail());
+        responsible.setActive(true);
+
+        return responsible;
+    }
+
+    public Account toAccount(ResponsibleDto dto, Responsible responsible) {
+        Account account = new Account();
+
+        account.setUsername(dto.getEmail());
+        account.setPassword(passwordEncoder.encode(dto.getPassword()));
+        account.setActive(true);
+        account.setResponsible(responsible);
+
+        return account;
     }
 }
