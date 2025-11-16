@@ -81,10 +81,13 @@
             color: #6b5a45;
         }
         
+        /* CONTEÚDO PRINCIPAL - AGORA DENTRO DO CONTAINER */
         .main-content {
             display: flex;
             gap: 40px;
+            margin-bottom: 40px; /* Espaço antes do footer */
         }
+
         
         .articles-section {
             flex: 2;
@@ -184,11 +187,11 @@
 /*VIDEO*/
 .video-container {
     position: relative;
-    padding-bottom: 56.25%; 
+    padding-bottom: 56.25%;
     height: 0;
     border-radius: 12px;
-    overflow: hidden; 
-    background: #f4d0dc; 
+    overflow: hidden;
+    background: #f4d0dc;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
     z-index: 0;
 }
@@ -214,7 +217,7 @@
     top: 0;
     left: 0;
     right: 0;
-    bottom: 0;   
+    bottom: 0;
     opacity: 0.5;
     z-index: 0;
 }

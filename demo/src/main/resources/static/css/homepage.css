@@ -574,44 +574,6 @@ transform: rotate(45deg);
   margin-bottom: 30px;
   color: rgba(102, 80, 80, 0.8);
 }
-.featured-container {
-  position: absolute;
-  top: 55%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  display: flex;
-  align-items: center;
-  gap: 80px; 
-  justify-content: center;
-  z-index: 10; 
-}
-
-.letter {
-  flex: 1;
-  max-width: 300px; 
-  width: 450px;
-  height: auto;
-  display: block;
-}
-
-.hang-card {
-  flex: 1;
-  max-width: 100px; 
-  width: 250px;
-  height: auto;
-  display: block;
-  transform: rotate(-3deg);
-}
-
-
-.receipt {
-  flex: 1;
-  max-width: 100px; 
-  width: 250px;
-  height: auto;
-  display: block;
-  transform: rotate(3deg);
-}
 
 .resource::after {
   content: "";

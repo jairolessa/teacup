@@ -74,49 +74,6 @@
         border-color: #47362e;
         background-color: #fff;
     }
-  
- 
-        .endereco-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin-top: 15px;
-            padding: 15px;
-            border: 1px solid #d0b49f;
-            background-color: #caa3835e;
-            border-radius: 10px;
-        }
-        
-        .endereco-full-width {
-            flex: 1 0 100% !important; 
-            width: 100% !important;
-            margin-bottom: 15px;
-        }
-
-        .endereco-grupo:not(.endereco-full-width) {
-            flex: 1 0 auto !important; 
-            min-width: 120px;
-        }
-        .endereco-titulo {
-            width: 100%;
-            font-size: 18px;
-            font-weight: bold;
-            color: #9c6644;
-            margin-bottom: 10px;
-            text-align: center;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        
-        .endereco-grupo {
-            flex: 1;
-            min-width: 120px;
-        }
-        
-        .endereco-grupo.numero {
-            flex: 0.3;
-            min-width: 80px;
-        }
 
     .btn {
         background-color: #8b5a3e;
