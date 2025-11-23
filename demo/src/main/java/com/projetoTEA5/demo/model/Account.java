@@ -24,8 +24,7 @@ public class Account implements UserDetails {
     @Column(nullable = false)
     private Boolean active = true;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "responsible_id")
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "account")
     private Responsible responsible;
 
     public Account() {
@@ -103,5 +102,16 @@ public class Account implements UserDetails {
 
     public void setResponsible(Responsible responsible) {
         this.responsible = responsible;
+    }
+
+    @Override
+    public String toString() {
+        return "Account{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", active=" + active +
+                ", responsible=" + responsible +
+                '}';
     }
 }
