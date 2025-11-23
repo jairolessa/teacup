@@ -19,7 +19,6 @@ public class ResponsibleMapper {
     public Responsible toResponsible(ResponsibleDto dto) {
         Responsible responsible = new Responsible();
 
-//        responsible.setId(dto.getId());
         responsible.setFullName(dto.getFullName());
         responsible.setCpf(dto.getCpf());
         responsible.setGender(dto.getGender());
