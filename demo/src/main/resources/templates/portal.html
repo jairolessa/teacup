@@ -13,7 +13,7 @@
 <header class="banner">
     <div class="header-content">
         <nav class="nav-left">
-            <a th:href="@{/responsible/tea-cad}" class="nav-item">
+            <a th:href="@{/dependent/tea-cad}" class="nav-item">
                 <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40">
                     <circle cx="20" cy="20" r="18" fill="#909071"/>
                     <circle cx="20" cy="20" r="18" fill="none" stroke="#F5F5DC" stroke-width="2"/>
@@ -107,28 +107,33 @@
         <div class="left-column">
             <div class="card card-dependents">
                 <h2>Sobre a Jornada</h2>
-                <div class="dependent-info">
+
+                <div class="dependent-info" th:if="${dependents.isEmpty()}">
                     <img th:src="@{/imgs/white-heart.webp}" class="white-heart" alt="Small pin of a white heart.">
-                    <div class="info-row">
+                    <p>Você ainda não cadastrou nenhum dependente.</p>
+                </div>
 
-                        <div class="info-item">
-                            <div class="info-label">Nome da Criança</div>
-                            <div class="info-value">Lucas Silva</div>
-                        </div>
-                        <div class="info-item">
-                            <div class="info-label">Idade</div>
-                            <div class="info-value">7 anos</div>
-                        </div>
-                    </div>
+                <div class="dependent-info" th:if="${!dependents.isEmpty()}">
 
-                    <div class="info-row">
-                        <div class="info-item">
-                            <div class="info-label">Diagnóstico</div>
-                            <div class="info-value">TEA Nível 1</div>
+                    <div class="dependent-info" th:each="dependent : ${dependents}">
+
+                        <div class="info-row">
+
+                            <div class="info-item">
+                                <div class="info-label">Nome da Criança</div>
+                                <div class="info-value" th:text="${dependent.fullName}"></div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">Data de nascimento</div>
+                                <div class="info-value" th:text="${#temporals.format(dependent.birthDate, 'dd/MM/yyyy')}"></div>
+                            </div>
                         </div>
-                        <div class="info-item">
-                            <div class="info-label">Data do Diagnóstico</div>
-                            <div class="info-value">Janeiro 2022</div>
+
+                        <div class="info-row">
+                            <div class="info-item">
+                                <div class="info-label">Diagnóstico</div>
+                                <div class="info-value" th:text="${dependent.supportLevels.suportLevels}"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
