@@ -1,11 +1,11 @@
 package com.projetoTEA5.demo.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
+import jakarta.persistence.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -42,7 +42,16 @@ public class Responsible extends Person{
     @Column(nullable = false)
     private Boolean active = true;
 
-    public Responsible(String contactNumber, String cep, String publicPlace, String houseNumber, String neighbourhood, String city, String state, String complement, String email, Boolean active) {
+    @OneToOne
+    @JoinColumn(name = "account_id")
+    private Account account;
+
+    @OneToMany(mappedBy = "responsible", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+    private List<Dependent> dependents = new ArrayList<>();
+
+    public Responsible(String contactNumber, String cep, String publicPlace, String houseNumber,
+                       String neighbourhood, String city, String state, String complement, String email,
+                       Boolean active) {
         this.contactNumber = contactNumber;
         this.cep = cep;
         this.publicPlace = publicPlace;
@@ -135,6 +144,22 @@ public class Responsible extends Person{
 
     public void setActive(Boolean active) {
         this.active = active;
+    }
+
+    public List<Dependent> getDependents() {
+        return dependents;
+    }
+
+    public void setDependents(List<Dependent> dependents) {
+        this.dependents = dependents;
+    }
+
+    public Account getAccount() {
+        return account;
+    }
+
+    public void setAccount(Account account) {
+        this.account = account;
     }
 
     @Override
