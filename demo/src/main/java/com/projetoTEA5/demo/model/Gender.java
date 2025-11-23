@@ -1,7 +1,5 @@
 package com.projetoTEA5.demo.model;
 
-import jakarta.persistence.Enumerated;
-
 public enum Gender {
 
     MASCULINO("MASCULINO"),
