@@ -3,6 +3,7 @@ package com.projetoTEA5.demo.service;
 import com.projetoTEA5.demo.dto.ResponsibleDto;
 import com.projetoTEA5.demo.mapper.ResponsibleMapper;
 import com.projetoTEA5.demo.model.Account;
+import com.projetoTEA5.demo.model.Dependent;
 import com.projetoTEA5.demo.model.Responsible;
 import com.projetoTEA5.demo.repository.AccountRepository;
 import com.projetoTEA5.demo.repository.ResponsibleRepository;
@@ -10,6 +11,8 @@ import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class ResponsibleService {
@@ -27,12 +30,24 @@ public class ResponsibleService {
 
     @Transactional
     public void saveResponsible(ResponsibleDto responsibleDto){
-        System.out.println("Save Responsible");
-        Responsible responsible = responsibleMapper.toResponsible(responsibleDto);
-        System.out.println(responsible.toString());
-        responsibleRepository.save(responsible);
 
+        Responsible responsible = responsibleMapper.toResponsible(responsibleDto);
         Account account = responsibleMapper.toAccount(responsibleDto, responsible);
+
+        responsible.setAccount(account);
+        account.setResponsible(responsible);
+
+        responsibleRepository.save(responsible);
         accountRepository.save(account);
+    }
+
+    public List<Dependent> loadDependents(Account account){
+
+        Responsible responsible = responsibleRepository.findByAccount(account)
+                .orElseThrow(() -> new RuntimeException("Responsável não encontrado!"));
+
+        List<Dependent> dependents = responsible.getDependents();
+
+        return dependents;
     }
 }
