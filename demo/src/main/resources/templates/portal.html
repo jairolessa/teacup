@@ -136,6 +136,25 @@
                                 <div class="info-label">Diagnóstico</div>
                                 <div class="info-value" th:text="${dependent.supportLevels.suportLevels}"></div>
                             </div>
+
+                            <div class="info-item">
+                                <div class="info-label">Vinculo</div>
+                                <div class="info-value" th:text="${dependent.bondNature.bond}"></div>
+                            </div>
+                        </div>
+
+                        <div class="dependent-actions">
+                            <div>
+                                <a th:href="@{/dependent/edit/{id}(id=${dependent.id})}">
+                                    <button type="button" class="">Editar</button>
+                                </a>
+                            </div>
+
+                            <div>
+                                <a th:href="@{/dependent/delete/{id}(id=${dependent.id})}">
+                                    <button type="button" class="delete-btn">Excluir</button>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>

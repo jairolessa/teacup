@@ -28,26 +28,42 @@
         
         <div class="vintage-pattern"></div>
         
-        <form id="registrationForm" th:action="@{/dependent/new-dependent}" method="post">
+        <form id="registrationForm"
+              th:action="@{${dependent.id} != null ? '/dependent/update' : '/dependent/new-dependent'}"
+              th:object="${dependent}"
+              method="post">
+
+            <input type="number" th:field="*{id}" hidden="hidden">
+
             <div class="form-group">
                 <label for="nome">Nome Completo</label>
-                <input type="text" id="nome" name="fullName" required>
+                <input type="text" id="nome" name="fullName" th:field="*{fullName}" required>
             </div>
             
             <div class="col-2">
                 <div class="form-group">
                     <label for="cpf">CPF</label>
-                    <input type="text" id="cpf" name="cpf" placeholder="000.000.000-00" required>
+                    <input type="text" id="cpf" name="cpf" placeholder="000.000.000-00"
+                           th:field="*{cpf}"
+                           th:readonly="${dependent.id != null}" required>
                 </div>
 
                 <div class="form-group">
-                    <label for="data_nascimento">Data de Nascimento</label>
-                    <input type="date" id="data_nascimento" name="birthDate" required>
+                    <label for="dataNascimento">Data de Nascimento:</label>
+                    <input type="date" id="dataNascimento"
+                           th:field="*{birthDate}" required>
                 </div>
 
                  <div class="form-group">
                             <label for="genero">Gênero</label>
-                            <select id="genero" class="form-control" name="gender" required></select>
+                            <select id="genero" class="form-control" name="gender"
+                                    th:field="*{gender}" required>
+
+                                <option th:each="gender : ${genders}"
+                                        th:value="${gender}"
+                                        th:text="${gender.gender}"></option>
+
+                            </select>
                         </div>
 
             </div>
@@ -56,37 +72,53 @@
                 
                 <div class="form-group">
                     <label for="telefone">Telefone de Contato</label>
-                    <input type="tel" id="telefone" name="contactNumber" placeholder="(00) 00000-0000">
+                    <input type="tel" id="telefone" name="contactNumber" placeholder="(00) 00000-0000"
+                           th:field="*{contactNumber}">
                 </div>
             </div>
 
                 <div class="col-3">
                     <div class="form-group">
                             <label for="parentesco">Natureza do Vínculo</label>
-                            <select id="parentesco" class="form-control" name="bondNature" required></select>
+                            <select id="parentesco" class="form-control" name="bondNature"
+                                    th:field="*{bondNature}" required>
+
+                                <option th:each="bond : ${bonds}"
+                                        th:value="${bond}"
+                                        th:text="${bond.bond}"></option>
+                            </select>
                         </div>
 
                         <div class="form-group">
                             <label for="nivelSuporte">Nível de Suporte</label>
-                            <select id="nivelSuporte" class="form-control" name="supportLevels" required></select>
+                            <select id="nivelSuporte" class="form-control" name="supportLevels"
+                                    th:field="*{supportLevels}" required>
+
+                                <option th:each="suportLevel : ${suportLevels}"
+                                        th:value="${suportLevel}"
+                                        th:text="${suportLevel.suportLevels}"></option>
+                            </select>
                         </div>
                 </div>  
                         
                         <div class="form-group">
                             <label for="escola">Instituição de Ensino (se houver)</label>
-                            <input type="text" id="escola" class="form-control" name="educationInstitute">
+                            <input type="text" id="escola" class="form-control" name="educationInstitute"
+                                    th:field="*{educationInstitute}">
                         </div>
                  
                     
                     <div class="form-group">
                         <label for="info-saude">Informações de Saúde (alergias, medicações, etc.)</label>
-                        <textarea id="info-saude" class="form-control" name="healthInfo" rows="3"></textarea>
+                        <textarea id="info-saude" class="form-control" name="healthInfo" rows="3"
+                                  th:field="*{healthInfo}"></textarea>
                     </div>
                 
                 <div class="col-4">    
                     <div class="form-group">
                         <label for="contato-emergencia">Contato de Emergência (além do tutor)</label>
-                        <input type="text" id="contato-emergencia" name="emergencyContact" class="form-control" placeholder="(00) 00000-0000">
+                        <input type="text" id="contato-emergencia" name="emergencyContact" class="form-control"
+                               th:field="*{emergencyContact}" placeholder="(00) 00000-0000">
                     </div> 
 
                     <div class="form-group">
@@ -96,8 +128,9 @@
                 </div>                      
             
             <div class="vintage-pattern"></div>
-            
-            <button type="submit" class="btn">Cadastrar</button>
+
+            <button type="submit" class="btn"
+                    th:text="${dependent.id} != null ? 'Atualizar' : 'Cadastrar'"></button>
         </form>
         
         <div class="stars">✶ ✶ ✶</div>

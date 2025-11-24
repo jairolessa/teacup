@@ -2,10 +2,10 @@ package com.projetoTEA5.demo.model;
 
 public enum SuportLevels {
 
-    SUPORTE_LEVE("Nível de Suporte Leve"),
-    SUPOETE_MODERADO("Nível de Suporte Moderado"),
-    SUPORTE_SEVERO("Nível de Suporte Severo"),
-    NAO_INFORMADO("Nível de Suporte não informado");
+    SUPORTE_LEVE("Nível 1 de Suporte (Leve)"),
+    SUPORTE_MODERADO("Nível 2 de Suporte (Moderado)"),
+    SUPORTE_SEVERO("Nível 3 de Suporte (Severo)"),
+    NAO_INFORMADO("Prefiro não informar");
 
     private String suportLevels;
 

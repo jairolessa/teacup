@@ -2,6 +2,7 @@ package com.projetoTEA5.demo.controller;
 
 import com.projetoTEA5.demo.dto.ResponsibleDto;
 import com.projetoTEA5.demo.model.Account;
+import com.projetoTEA5.demo.model.Bond;
 import com.projetoTEA5.demo.model.Dependent;
 import com.projetoTEA5.demo.model.SuportLevels;
 import com.projetoTEA5.demo.service.ResponsibleService;
@@ -38,6 +39,7 @@ public class ResponsibleController {
 
         model.addAttribute("dependents", dependents);
         model.addAttribute("supportLevels", SuportLevels.values());
+        model.addAttribute("bond", Bond.values());
 
         return "portal";
     }

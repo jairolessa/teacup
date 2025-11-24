@@ -1,6 +1,7 @@
 package com.projetoTEA5.demo.model;
 
 import jakarta.persistence.*;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
 
@@ -17,6 +18,7 @@ public abstract class Person {
     @Column(nullable = false, unique = true)
     private String cpf;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Column(name = "birth_date", nullable = false)
     private LocalDate birthDate;
 

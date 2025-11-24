@@ -13,7 +13,10 @@
         <h1>Login</h1>
         
         <div class="stars">✶ ✶ ✶</div>
-        
+
+        <div th:if="${param.error}">Usuário ou senha inválidos!</div>
+        <div th:if="${param.logout}">Logout realizado!</div>
+
         <form id="loginform" th:action="@{/responsible/login}" method="POST">
 
             <div class="vintage-pattern"></div>
@@ -32,9 +35,6 @@
                 
                 <button type="submit" class="btn">Entrar</button>
         </form>
-
-        <div th:if="${param.error}">Usuário ou se nha inválidos!</div>
-        <div th:if="${param.logout}">Logout realizado!</div>
         
         <div class="stars">✶ ✶ ✶</div>
 
