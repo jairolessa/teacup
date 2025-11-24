@@ -16,43 +16,53 @@
         
         <div class="vintage-pattern"></div>
         
-            <form id="registrationForm" th:action="@{/responsible/new}" method="POST">
+            <form id="registrationForm" th:action="@{/responsible/new}"
+                  th:object="${responsibleDto}" method="POST">
+
             <div class="form-group">
                 <label for="nome">Nome Completo</label>
-                <input type="text" id="nome" name="fullName" placeholder="Digite o nome completo">
+                <input type="text" id="nome" th:field="*{fullName}" placeholder="Digite o nome completo">
+                <span th:if="${#fields.hasErrors('fullName')}" th:errors="*{fullName}" class="text-danger"></span>
             </div>
             
             <div class="col-2">
                 <div class="form-group">
                     <label for="cpf">CPF</label>
-                    <input type="text" id="cpf" name="cpf" placeholder="000.000.000-00" required>
+                    <input type="text" id="cpf" th:field="*{cpf}" placeholder="000.000.000-00" required>
+                    <span th:if="${#fields.hasErrors('cpf')}" th:errors="*{cpf}" class="text-danger"></span>
                 </div>
 
                 <div class="form-group">
                     <label for="data_nascimento">Data de Nascimento</label>
-                    <input type="date" id="data_nascimento" name="birthDate" required>
+                    <input type="date" id="data_nascimento" th:field="*{birthDate}" required>
+                    <span th:if="${#fields.hasErrors('birthDate')}" th:errors="*{birthDate}" class="text-danger"></span>
                 </div>
 
                 <div class="form-group">
                             <label for="genero">Gênero</label>
-                            <select id="genero" class="form-control" name="gender" required></select>
+                            <select id="genero" class="form-control" th:field="*{gender}" required></select>
+                    <span th:if="${#fields.hasErrors('gender')}" th:errors="*{gender}" class="text-danger"></span>
                 </div>
             </div>
             
             <div class="form-group">
                 <label for="email">E-mail</label>
-                <input type="email" id="email" name="email" required>
+                <input type="email" id="email" th:field="*{email}" required>
+                <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="text-danger"></span>
             </div>
             
             <div class="col-2">
                 <div class="form-group">
                     <label for="cep">CEP</label>
-                    <input type="text" id="cep" name="cep" placeholder="00000-000" required>
+                    <input type="text" id="cep" th:field="*{cep}" placeholder="00000-000" required>
+                    <span th:if="${#fields.hasErrors('cep')}" th:errors="*{cep}" class="text-danger"></span>
                 </div>
                 
                 <div class="form-group">
                     <label for="telefone">Telefone de Contato</label>
-                    <input type="tel" id="telefone" name="contactNumber" placeholder="(00) 00000-0000" required>
+                    <input type="tel" id="telefone" th:field="*{contactNumber}" placeholder="(00) 00000-0000"
+                           required>
+                    <span th:if="${#fields.hasErrors('contactNumber')}" th:errors="*{contactNumber}" class="text-danger"></span>
                 </div>
             </div>
 
@@ -62,7 +72,8 @@
                     
                     <div class="endereco-grupo endereco-full-width">
                         <label for="endereco">Logradouro</label>
-                        <input type="text" id="endereco" name="publicPlace">
+                        <input type="text" id="endereco" th:field="*{publicPlace}" required>
+                        <span th:if="${#fields.hasErrors('publicPlace')}" th:errors="*{publicPlace}" class="text-danger"></span>
                     </div>
                     
                     <div class="endereco-grupo numero">
@@ -73,16 +84,19 @@
                     <div class="endereco-grupo">
                         <label for="bairro">Bairro</label>
                         <input type="text" id="bairro" name="neighbourhood">
+                        <span th:if="${#fields.hasErrors('neighbourhood')}" th:errors="*{neighbourhood}" class="text-danger"></span>
                     </div>
                     
                     <div class="endereco-grupo">
                         <label for="cidade">Cidade</label>
-                        <input type="text" id="cidade" name="city">
+                        <input type="text" id="cidade" th:field="*{city}">
+                        <span th:if="${#fields.hasErrors('city')}" th:errors="*{city}" class="text-danger"></span>
                     </div>
                     
                         <div class="endereco-grupo">
                             <label for="estado">Estado</label>
-                            <select id="estado" name="state"></select>
+                            <select id="estado" th:field="*{state}"></select>
+                            <span th:if="${#fields.hasErrors('state')}" th:errors="*{state}" class="text-danger"></span>
                         </div>
                         
                         <div class="endereco-grupo endereco-full-width">

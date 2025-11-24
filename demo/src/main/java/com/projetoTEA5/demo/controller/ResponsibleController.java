@@ -10,7 +10,9 @@ import jakarta.validation.Valid;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
@@ -25,7 +27,12 @@ public class ResponsibleController {
     }
 
     @PostMapping("/new")
-    public String registerResponsible(@Valid @ModelAttribute ResponsibleDto responsibleDto){
+    public String registerResponsible(@Valid @ModelAttribute ResponsibleDto responsibleDto,
+                                      BindingResult result, Model model){
+
+        if(result.hasErrors()){
+            return "tutor-cad";
+        }
 
         responsibleService.saveResponsible(responsibleDto);
 

@@ -232,3 +232,29 @@
             gap: 0;
         }
     }
+
+/* Estilo para a mensagem de erro de validação */
+.text-danger {
+    /* Cor que se destaca para erro, mas com tonalidade quente */
+    color: #C0392B; /* Vermelho escuro/tijolo, que combina com o tema vintage/marrom */
+
+    /* Garante que o span ocupe toda a largura disponível abaixo do input */
+    display: block;
+
+    /* Fonte e tamanho para legibilidade */
+    font-family: 'Crimson Pro', serif; /* Mantém a fonte serifada do design */
+    font-size: 0.9em; /* Tamanho ligeiramente menor que o texto do label */
+    font-weight: 600; /* Levemente mais ousado para ser notado */
+
+    /* Espaçamento para separação visual */
+    margin-top: 4px; /* Pequeno espaço acima do erro */
+    margin-bottom: 8px; /* Espaço abaixo do erro, antes do próximo label */
+
+    /* Garantir que o texto esteja alinhado corretamente */
+    text-align: left;
+}
+
+/* Opcional: Efeito visual sutil no campo que falhou */
+.form-group input.is-invalid {
+    border: 1px solid #C0392B;
+}

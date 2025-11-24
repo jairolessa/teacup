@@ -1,12 +1,3 @@
-/*document.getElementById('registrationForm').addEventListener('submit', function (event) {
-    event.preventDefault();
-
-    const formData = new FormData(this);
-
-    alert('Formulário enviado com sucesso!');
-    window.location.replace("tutor-login");
-});*/
-
 //CPF
 document.getElementById('cpf').addEventListener('input', function (e) {
     let value = e.target.value.replace(/\D/g, '');
@@ -83,3 +74,8 @@ function preencherSelect(selectId, options) {
 
 preencherSelect("estado", estados);
 preencherSelect("genero", generos);
+
+document.querySelector("form").addEventListener("submit", function () {
+    const cpfInput = document.getElementById("cpf");
+    cpfInput.value = cpfInput.value.replace(/\D/g, "");
+});

@@ -8,8 +8,6 @@ import com.projetoTEA5.demo.model.Responsible;
 import com.projetoTEA5.demo.repository.AccountRepository;
 import com.projetoTEA5.demo.repository.ResponsibleRepository;
 import jakarta.transaction.Transactional;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -49,5 +47,8 @@ public class ResponsibleService {
         List<Dependent> dependents = responsible.getDependents();
 
         return dependents;
+    }
+    public void cpfValidation(String cpf){
+
     }
 }

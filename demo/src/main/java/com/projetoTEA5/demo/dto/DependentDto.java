@@ -6,7 +6,9 @@ import com.projetoTEA5.demo.model.Responsible;
 import com.projetoTEA5.demo.model.SuportLevels;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
+import org.hibernate.validator.constraints.br.CPF;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
@@ -14,11 +16,12 @@ import java.time.LocalDate;
 public class DependentDto {
 
     @NotBlank(message = "O nome completo é obrigatório!")
-    @Size(min = 3, message = "O nome deve ser completo!")
+    @Size(min = 10, message = "O nome deve ser completo!")
     private String fullName;
 
     @NotBlank(message = "O cpf é obrigatório!")
-//    @Pattern(regexp = "\\d{11}", message = "O CPF deve conter 11 dígitos!")
+    @Pattern(regexp = "^\\d{11}$", message = "O CPF deve conter 11 dígitos numéricos")
+    @CPF(message = "CPF inválido. Verifique os dígitos.")
     private String cpf;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
@@ -75,9 +78,7 @@ public class DependentDto {
         return cpf;
     }
 
-    public void setCpf(@NotBlank(message = "O cpf é obrigatório!") String cpf) {
-        this.cpf = cpf;
-    }
+    public void setCpf(@NotBlank(message = "O cpf é obrigatório!") String cpf) {this.cpf = cpf;}
 
     public @NotNull(message = "A data de nascimento é obrigatória!") LocalDate getBirthDate() {
         return birthDate;

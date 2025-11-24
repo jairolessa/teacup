@@ -1,26 +1,22 @@
 package com.projetoTEA5.demo.dto;
 
 import com.projetoTEA5.demo.model.Gender;
-import jakarta.persistence.Column;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 import jakarta.validation.constraints.*;
+import org.hibernate.validator.constraints.br.CPF;
 
 import java.time.LocalDate;
 
 public class ResponsibleDto {
 
-//    @Id
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @NotBlank(message = "O nome completo é obrigatório!")
-    @Size(min = 3, message = "O nome deve ser completo!")
+    @Size(min = 10, message = "O nome deve ser completo!")
     private String fullName;
 
     @NotBlank(message = "O cpf é obrigatório!")
-//    @Pattern(regexp = "\\d{11}", message = "O CPF deve conter 11 dígitos!")
+    @Pattern(regexp = "^\\d{11}$", message = "O CPF deve conter 11 dígitos numéricos")
+    @CPF(message = "CPF inválido. Verifique os dígitos.")
     private String cpf;
 
     @NotNull(message = "A data de nascimento é obrigatória!")
@@ -33,7 +29,6 @@ public class ResponsibleDto {
     private String contactNumber;
 
     @NotBlank(message = "O cep é obrigatório!")
-//    @Pattern(regexp = "\\d{8}", message = "O CPF deve conter 8 dígitos!")
     private String cep;
 
     @NotBlank(message = "O logradouro é obrigatório!")
