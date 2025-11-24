@@ -7,6 +7,7 @@ import com.projetoTEA5.demo.model.SuportLevels;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
 
@@ -20,6 +21,7 @@ public class DependentDto {
 //    @Pattern(regexp = "\\d{11}", message = "O CPF deve conter 11 dígitos!")
     private String cpf;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     @NotNull(message = "A data de nascimento é obrigatória!")
     private LocalDate birthDate;
 
